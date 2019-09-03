@@ -1,0 +1,23 @@
+define memory with size = 4G;
+
+define symbol _estack = 0x20080000;
+define region RAM = [0x20000000 size 0x80000];
+define region FLASH = [0x8000000 size 0x200000];
+define block ctors { section .ctors, section .ctors.*, block with alphabetical order { init_array } };
+define block dtors { section .dtors, section .dtors.*, block with reverse alphabetical order { fini_array } };
+define block exidx { section .ARM.exidx, section .ARM.exidx.* };
+define block tbss  { section .tbss,  section .tbss.*  };
+define block tdata { section .tdata, section .tdata.* };
+define block tls   { block tbss, block tdata };
+define block heap  with size = __HEAPSIZE__, alignment = 8, readwrite access { };
+define block stack with size = __STACKSIZE__, alignment = 8, readwrite access { };
+do not initialize  { section .non_init };
+initialize by copy { section .fast };
+
+place in FLASH { section .isr_vector };
+keep { section .isr_vector };
+place in FLASH { section .init, section .init.*, section .text, section *.text.*, section .rodata, section .rodata.*, section .segger.*, block exidx, block ctors, block dtors };
+place in RAM { section .data, section .data.*, section .RamFunc* };
+place in RAM { section .bss, section .bss.* };
+place in RAM { block heap, block tls, section .non_init, section .fast };
+define symbol __stack_end__ = _estack;
