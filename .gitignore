@@ -1,0 +1,9 @@
+/packtBookRTOS/Chapters5_6/.settings/com.atollic.truestudio.debug.hardware_device.prefs
+/packtBookRTOS/Chapters5_6/.settings/language.settings.xml
+/packtBookRTOS/Chapters5_6/.settings/org.eclipse.cdt.codan.core.prefs
+/packtBookRTOS/Chapters5_6/.settings/org.eclipse.cdt.managedbuilder.core.prefs
+/packtBookRTOS/Chapters5_6/freeRTOS_Nucleo767.elf.launch
+/packtBookRTOS/Chapters5_6/freeRTOS_Nucleo767.ioc
+/packtBookRTOS/Chapters5_6/freeRTOS_Nucleo767.jdebug.user
+/packtBookRTOS/Chapters5_6.gitignore.bak
+*.user
