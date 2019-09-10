@@ -7,3 +7,6 @@
 /packtBookRTOS/Chapters5_6/freeRTOS_Nucleo767.jdebug.user
 /packtBookRTOS/Chapters5_6.gitignore.bak
 *.user
+/.metadata
+/TIM9Init
+/Chapters5_6/*.launch

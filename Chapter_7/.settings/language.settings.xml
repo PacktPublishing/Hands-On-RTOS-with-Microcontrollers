@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project>
-	<configuration id="com.atollic.truestudio.exe.debug.1518366166" name="Debug">
+	<configuration id="com.atollic.truestudio.exe.debug.1518366166" name="TaskCreationBuild">
 		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
 			<provider copy-of="extension" id="org.eclipse.cdt.ui.UserLanguageSettingsProvider"/>
 			<provider-reference id="org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider" ref="shared-provider"/>
@@ -10,7 +10,7 @@
 			</provider>
 		</extension>
 	</configuration>
-	<configuration id="com.atollic.truestudio.configuration.release.1518366166" name="Release">
+	<configuration id="com.atollic.truestudio.exe.debug.1518366166.1064131022" name="FailedStartupBuild">
 		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
 			<provider copy-of="extension" id="org.eclipse.cdt.ui.UserLanguageSettingsProvider"/>
 			<provider-reference id="org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider" ref="shared-provider"/>
