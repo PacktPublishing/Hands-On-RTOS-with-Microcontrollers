@@ -1,0 +1,15 @@
+/Debug/
+/Release/
+/.vscode/
+/TaskCreation/
+/TaskCreationBuild/
+/PolledVariableBuild/
+/FailedStartupBuild/
+/semaphoreExample/
+/polledExample/
+/semaphoreTimeBound/
+/semaphorePriorityInversion/
+/mutexExample/
+/raceCondition/
+/repeatTimer/
+/softwareTimers/

@@ -1,5 +1,5 @@
-#ifndef BSP_NUCLEO_F767ZI_LEDS_H_
-#define BSP_NUCLEO_F767ZI_LEDS_H_
+#ifndef BSP_NUCLEO_F767ZI_GPIO_H_
+#define BSP_NUCLEO_F767ZI_GPIO_H_
 
 #include <stm32f7xx_hal.h>
 
@@ -16,8 +16,10 @@ typedef struct
 	const GPIOFunc Off;
 }LED;
 
+uint_fast8_t ReadPushButton( void );
+
 extern LED BlueLed;
 extern LED GreenLed;
 extern LED RedLed;
 
-#endif /* BSP_NUCLEO_F767ZI_LEDS_H_ */
+#endif /* BSP_NUCLEO_F767ZI_GPIO_H_ */

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Chapter5_6</name>
+	<name>Chapter_8</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -79,12 +79,12 @@
 		<link>
 			<name>Drivers</name>
 			<type>2</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/packtBookRTOS/Drivers</locationURI>
+			<location>C:/projects/packtBookRTOS/Drivers</location>
 		</link>
 		<link>
 			<name>Middleware</name>
 			<type>2</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/packtBookRTOS/Middleware</locationURI>
+			<location>C:/projects/packtBookRTOS/Middleware</location>
 		</link>
 	</linkedResources>
 </projectDescription>
