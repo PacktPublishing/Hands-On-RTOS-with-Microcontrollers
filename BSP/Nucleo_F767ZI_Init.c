@@ -1,17 +1,19 @@
-#include <Nucleo_F767ZI_Init.h>
+#include "Nucleo_F767ZI_Init.h"
 #include <main.h>
 #include <SEGGER_SYSVIEW.h>
 
 static void systemClockConfig(void);
-static void gpioInit(void);
+static void gpioLedPinsInit(void);
 static void rngInit(void);
 
+UART_HandleTypeDef huart4;
+UART_HandleTypeDef uartInitStruct;
 /************************************* PUBLIC FUNCTIONS **************************/
 void HWInit( void )
 {
 	HAL_Init();
 	systemClockConfig();
-	gpioInit();			//initialize GPIO lines for LED's
+	gpioLedPinsInit();			//initialize GPIO lines for LED's
 	rngInit();
 }
 
@@ -90,15 +92,15 @@ static void systemClockConfig(void)
   * Initialize all relevant GPIO lines for LED's used in examples, as well as
   * USB pins
   */
-static void gpioInit(void)
+static void gpioLedPinsInit(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
 
@@ -147,6 +149,7 @@ static void rngInit( void )
 	//enable the random number generator
 	RNG->CR |= RNG_CR_RNGEN;
 }
+
 /**
   * @brief  This function is executed in case of error occurrence.
   * @retval None
