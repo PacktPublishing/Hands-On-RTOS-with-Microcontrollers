@@ -19,3 +19,10 @@
 /queueLargeCompositePassByValue/
 /directTaskNofications/
 /uartPolled/
+/uartInterrupt/
+/uartInterruptBuffer/
+/uartDMA/
+/uartDMABuff/
+/uartDMAStreamBuffer/
+/uartDMAStreamBufferCont/
+/uartInterruptQueue/

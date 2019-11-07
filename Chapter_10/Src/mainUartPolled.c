@@ -51,14 +51,13 @@ static QueueHandle_t uart2_BytesReceived = NULL;
 int main(void)
 {
 	HWInit();
-	STM_UartInit(USART2, 9600, NULL, NULL);
-	SetupUart4ExternalSim();
+	SetupUart4ExternalSim(9600);
 	SEGGER_SYSVIEW_Conf();
 	HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);	//ensure proper priority grouping for freeRTOS
 
 	//setup tasks, making sure they have been properly created before moving on
-	assert_param(xTaskCreate(polledUartReceive, "polledUartReceive", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL) == pdPASS);
-	assert_param(xTaskCreate(uartPrintOutTask, "polledUartReceive", STACK_SIZE, NULL, tskIDLE_PRIORITY + 3, NULL) == pdPASS);
+	assert_param(xTaskCreate(polledUartReceive, "polledUartRx", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL) == pdPASS);
+	assert_param(xTaskCreate(uartPrintOutTask, "uartPrintTask", STACK_SIZE, NULL, tskIDLE_PRIORITY + 3, NULL) == pdPASS);
 
 	uart2_BytesReceived = xQueueCreate(10, sizeof(char));
 
@@ -86,14 +85,16 @@ void uartPrintOutTask( void* NotUsed)
 		SEGGER_SYSVIEW_PrintfHost("%c", nextByte);
 	}
 }
+
 /**
- * This receive task watches a queue for a new ledCmd to be added to it
+ * This receive task uses a queue to directly monitor
+ * the USART2 peripheral.
  */
 void polledUartReceive( void* NotUsed )
 {
 	uint8_t nextByte;
 	//setup UART
-	USART2->CR1 = USART_CR1_RE_Msk | USART_CR1_UE_Msk;
+	STM_UartInit(USART2, 9600, NULL, NULL);
 	while(1)
 	{
 		while(!(USART2->ISR & USART_ISR_RXNE_Msk));

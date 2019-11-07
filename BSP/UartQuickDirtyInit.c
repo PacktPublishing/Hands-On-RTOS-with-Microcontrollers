@@ -54,6 +54,10 @@ void initUart4Pins( void )
  * Initialize the selected UART specified baudrate
  *	- enables peripheral clock
  *	- sets up default modes useful to us
+ *
+ *	NOTE:   If using DMA, the DmaTx or DmaRx pointers need to be pointing
+ *			to valid  DMA_HandleTypeDef and the DMA peripheral should be
+ *			initialized prior to calling this function
  * @param STM_UART_PERIPH STM32 peripheral name for the UART to initialize
  * @param Baudrate desired baudrate the UART will be setup to use
  * @param DmaTx pointer to DMA struct to use when transmitting via DMA
@@ -83,7 +87,7 @@ void STM_UartInit( USART_TypeDef* STM_UART_PERIPH, uint32_t Baudrate, DMA_Handle
 	uartInitStruct.Init.Parity = UART_PARITY_NONE;
 	uartInitStruct.Init.Mode = UART_MODE_TX_RX;
 	uartInitStruct.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-	uartInitStruct.Init.OverSampling = UART_OVERSAMPLING_16;
+	uartInitStruct.Init.OverSampling = UART_OVERSAMPLING_8;
 	uartInitStruct.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
 	uartInitStruct.hdmatx = DmaTx;
 	uartInitStruct.hdmarx = DmaRx;

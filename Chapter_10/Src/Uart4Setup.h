@@ -28,7 +28,7 @@
  extern "C" {
 #endif
 
-void SetupUart4ExternalSim( void );
+void SetupUart4ExternalSim( uint32_t Baudrate );
 
 
 #ifdef __cplusplus
