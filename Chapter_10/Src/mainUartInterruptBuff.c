@@ -47,6 +47,7 @@
 //(recommended min stack size per task)
 #define STACK_SIZE 128
 
+void wastefulTask( void* NotUsed);
 void uartPrintOutTask( void* NotUsed);
 void startUart4Traffic( TimerHandle_t xTimer );
 
@@ -85,6 +86,7 @@ int main(void)
 	assert_param(rxDone != NULL);
 
 	assert_param(xTaskCreate(uartPrintOutTask, "uartPrint", STACK_SIZE, NULL, tskIDLE_PRIORITY + 3, NULL) == pdPASS);
+	assert_param(xTaskCreate(wastefulTask, "wastefulTask", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL) == pdPASS);
 
 	//start the scheduler - shouldn't return unless there's a problem
 	vTaskStartScheduler();
@@ -123,6 +125,16 @@ void startUart4Traffic( TimerHandle_t xTimer )
 	SetupUart4ExternalSim(9600);
 }
 
+void wastefulTask( void* NotUsed)
+{
+	while(1)
+	{
+		volatile int i, j;
+		i = 10;
+		j = i;
+		i = j;
+	}
+}
 void uartPrintOutTask( void* NotUsed)
 {
 	uint8_t rxData[20];
@@ -199,6 +211,6 @@ void USART2_IRQHandler( void )
 			}
 		}
 	}
-	SEGGER_SYSVIEW_RecordExitISR();
 	portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+	SEGGER_SYSVIEW_RecordExitISR();
 }

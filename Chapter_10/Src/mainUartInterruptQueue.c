@@ -46,7 +46,7 @@
 // 128 * 4 = 512 bytes
 //(recommended min stack size per task)
 #define STACK_SIZE 128
-#define BAUDRATE 9600
+#define BAUDRATE 256400
 void uartPrintOutTask( void* NotUsed);
 void startUart4Traffic( TimerHandle_t xTimer );
 

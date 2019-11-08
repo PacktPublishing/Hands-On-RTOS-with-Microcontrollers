@@ -51,7 +51,7 @@
 //256400 - no errors
 //460800 - hit or miss, some corrupt data
 //512800 - hit or miss, some corrupt data
-#define BAUDRATE (9600)
+#define BAUDRATE (256400)
 void uartPrintOutTask( void* NotUsed);
 void startUart4Traffic( TimerHandle_t xTimer );
 
@@ -170,7 +170,6 @@ int32_t startCircularReceiveDMA( void )
 
 	//disable the stream and controller so we can setup dual buffers
 	__HAL_DMA_DISABLE(&usart2DmaRx);
-//	DMA1_Stream5->CR &= ~DMA_SxCR_EN;
 	//set the double buffer mode
 	DMA1_Stream5->CR |= DMA_SxCR_DBM;
 	//re-enable the stream and controller
@@ -252,6 +251,7 @@ void uartPrintOutTask( void* NotUsed)
  */
 void DMA1_Stream5_IRQHandler(void)
 {
+	uint16_t numWritten = 0;
 	uint8_t* currBuffPtr = NULL;
 	portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
 	SEGGER_SYSVIEW_RecordEnterISR();
@@ -276,10 +276,14 @@ void DMA1_Stream5_IRQHandler(void)
 
 		//if there is something to add to the queue, do so
 		//(don't call xStreamBuferSendFromISR with a length of 0)
-			xStreamBufferSendFromISR(	rxStream,
-										currBuffPtr,
-										RX_BUFF_LEN,
-										&xHigherPriorityTaskWoken);
+		numWritten = xStreamBufferSendFromISR(	rxStream,
+												currBuffPtr,
+												RX_BUFF_LEN,
+												&xHigherPriorityTaskWoken);
+
+		//OH NO - not everything was written to the stream
+		//if this is catastrophic, do something drastic!
+		while(numWritten != RX_BUFF_LEN);
 
 			DMA1->HIFCR |= DMA_HIFCR_CTCIF5;
 	}
