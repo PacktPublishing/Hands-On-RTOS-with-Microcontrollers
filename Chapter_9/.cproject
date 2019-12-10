@@ -138,7 +138,7 @@
 						</tool>
 					</fileInfo>
 					<sourceEntries>
-						<entry excluding="Src/mainTaskNotifications.c|Src/mainQueueLargeCompositePassByValue2.c|Src/mainQueueCompositePassByReference.c|Src/mainQueueLargeCompositePassByValue.c|Src/mainQueueCompositePassByValue.c|Src/mainQueueComplexPassByValue.c|Src/mainMutexExample.c|Src/mainRaceCondition.c|Src/mainSemPriorityInversion.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|BSP/ADC1.c|Src/mainSemTimeBound.c|Src/mainSemExample.c|Src/mainPolledExample.c|Src/main_FailedStartup.c|Src/main_Polled.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Drivers/HandsOnRTOS|Middleware/ST/STM32_USB_Device_Library|BSP/usbd_desc.c|BSP/usbd_conf.c|BSP/usbd_cdc_if.c|BSP/usb_device.c|Src/mainTaskNotifications.c|Src/mainQueueLargeCompositePassByValue2.c|Src/mainQueueCompositePassByReference.c|Src/mainQueueLargeCompositePassByValue.c|Src/mainQueueCompositePassByValue.c|Src/mainQueueComplexPassByValue.c|Src/mainMutexExample.c|Src/mainRaceCondition.c|Src/mainSemPriorityInversion.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|BSP/ADC1.c|Src/mainSemTimeBound.c|Src/mainSemExample.c|Src/mainPolledExample.c|Src/main_FailedStartup.c|Src/main_Polled.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -283,7 +283,7 @@
 						</tool>
 					</fileInfo>
 					<sourceEntries>
-						<entry excluding="Src/mainTaskNotifications.c|Src/mainQueueLargeCompositePassByValue2.c|Src/mainQueueCompositePassByReference.c|Src/mainQueueSimplePassByValue.c|Src/mainMutexExample.c|Src/mainRaceCondition.c|Src/mainSemPriorityInversion.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|BSP/ADC1.c|Src/mainSemTimeBound.c|Src/mainSemExample.c|Src/mainPolledExample.c|Src/main_FailedStartup.c|Src/main_Polled.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Drivers/HandsOnRTOS|Middleware/ST/STM32_USB_Device_Library|BSP/usbd_desc.c|BSP/usbd_conf.c|BSP/usbd_cdc_if.c|BSP/usb_device.c|Src/mainTaskNotifications.c|Src/mainQueueLargeCompositePassByValue2.c|Src/mainQueueCompositePassByReference.c|Src/mainQueueSimplePassByValue.c|Src/mainMutexExample.c|Src/mainRaceCondition.c|Src/mainSemPriorityInversion.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|BSP/ADC1.c|Src/mainSemTimeBound.c|Src/mainSemExample.c|Src/mainPolledExample.c|Src/main_FailedStartup.c|Src/main_Polled.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -428,7 +428,7 @@
 						</tool>
 					</fileInfo>
 					<sourceEntries>
-						<entry excluding="Src/mainTaskNotifications.c|Src/mainQueueLargeCompositePassByValue2.c|Src/mainQueueCompositePassByValue.c|Src/mainQueueLargeCompositePassByValue.c|Src/mainQueueSimplePassByValue.c|Src/mainMutexExample.c|Src/mainRaceCondition.c|Src/mainSemPriorityInversion.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|BSP/ADC1.c|Src/mainSemTimeBound.c|Src/mainSemExample.c|Src/mainPolledExample.c|Src/main_FailedStartup.c|Src/main_Polled.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Drivers/HandsOnRTOS|Middleware/ST/STM32_USB_Device_Library|BSP/usbd_desc.c|BSP/usbd_conf.c|BSP/usbd_cdc_if.c|BSP/usb_device.c|Src/mainTaskNotifications.c|Src/mainQueueLargeCompositePassByValue2.c|Src/mainQueueCompositePassByValue.c|Src/mainQueueLargeCompositePassByValue.c|Src/mainQueueSimplePassByValue.c|Src/mainMutexExample.c|Src/mainRaceCondition.c|Src/mainSemPriorityInversion.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|BSP/ADC1.c|Src/mainSemTimeBound.c|Src/mainSemExample.c|Src/mainPolledExample.c|Src/main_FailedStartup.c|Src/main_Polled.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -573,7 +573,7 @@
 						</tool>
 					</fileInfo>
 					<sourceEntries>
-						<entry excluding="Src/mainQueueSimplePassByValue.c|Src/mainQueueLargeCompositePassByValue2.c|Src/mainQueueCompositePassByReference.c|Src/mainQueueLargeCompositePassByValue.c|Src/mainQueueCompositePassByValue.c|Src/mainQueueComplexPassByValue.c|Src/mainMutexExample.c|Src/mainRaceCondition.c|Src/mainSemPriorityInversion.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|BSP/ADC1.c|Src/mainSemTimeBound.c|Src/mainSemExample.c|Src/mainPolledExample.c|Src/main_FailedStartup.c|Src/main_Polled.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Drivers/HandsOnRTOS|Middleware/ST/STM32_USB_Device_Library|BSP/usbd_desc.c|BSP/usbd_conf.c|BSP/usbd_cdc_if.c|BSP/usb_device.c|Src/mainQueueSimplePassByValue.c|Src/mainQueueLargeCompositePassByValue2.c|Src/mainQueueCompositePassByReference.c|Src/mainQueueLargeCompositePassByValue.c|Src/mainQueueCompositePassByValue.c|Src/mainQueueComplexPassByValue.c|Src/mainMutexExample.c|Src/mainRaceCondition.c|Src/mainSemPriorityInversion.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|BSP/ADC1.c|Src/mainSemTimeBound.c|Src/mainSemExample.c|Src/mainPolledExample.c|Src/main_FailedStartup.c|Src/main_Polled.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

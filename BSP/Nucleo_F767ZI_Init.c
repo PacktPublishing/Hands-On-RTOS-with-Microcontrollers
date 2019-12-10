@@ -2,8 +2,8 @@
 #include <main.h>
 #include <SEGGER_SYSVIEW.h>
 
-static void systemClockConfig(void);
-static void gpioLedPinsInit(void);
+void SystemClock_Config(void);
+static void gpioPinsInit(void);
 static void rngInit(void);
 
 UART_HandleTypeDef huart4;
@@ -12,8 +12,8 @@ UART_HandleTypeDef uartInitStruct;
 void HWInit( void )
 {
 	HAL_Init();
-	systemClockConfig();
-	gpioLedPinsInit();			//initialize GPIO lines for LED's
+	SystemClock_Config();
+	gpioPinsInit();			//initialize GPIO lines for LED's
 	rngInit();
 }
 
@@ -28,10 +28,8 @@ uint32_t StmRand( uint32_t Min, uint32_t Max )
 	return RNG->DR %Max + Min;
 }
 
-/************************************* PRIVATE FUNCTIONS **************************/
-//only visible within this compilation unit
 
-static void systemClockConfig(void)
+void SystemClock_Config(void)
 {
 	RCC_OscInitTypeDef RCC_OscInitStruct = {0};
 	RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
@@ -54,8 +52,8 @@ static void systemClockConfig(void)
 	RCC_OscInitStruct.PLL.PLLN = 216;
 	RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
 	RCC_OscInitStruct.PLL.PLLQ = 9;
-	RCC_OscInitStruct.PLL.PLLR = 2; //NOTE: this line was not supplied by HAL - it simply
-								  //sets the struct to match MCU defaults
+	RCC_OscInitStruct.PLL.PLLR = 2;	//NOTE: this line was not supplied by HAL - it simply
+									//sets the struct to match MCU defaults
 	if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
 	{
 		Error_Handler();
@@ -91,11 +89,14 @@ static void systemClockConfig(void)
 	}
 }
 
+/************************************* PRIVATE FUNCTIONS **************************/
+//only visible within this compilation unit
+
 /**
   * Initialize all relevant GPIO lines for LED's used in examples, as well as
   * USB pins
   */
-static void gpioLedPinsInit(void)
+static void gpioPinsInit(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
