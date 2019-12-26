@@ -25,6 +25,7 @@
 
 #include "hardwareAgnosticLedDriver.h"
 #include <stdlib.h>
+#include <stdint.h>
 
 /**
  * doLedStuff uses a hardware agnostic interface definition
@@ -37,6 +38,8 @@
  */
 void doLedStuff( iLed* LedPtr )
 {
+	__attribute__ ((unused)) volatile uint32_t dontCare = 0;
+
 	if(LedPtr != NULL)
 	{
 		if(LedPtr->On != NULL)
@@ -44,9 +47,19 @@ void doLedStuff( iLed* LedPtr )
 			LedPtr->On();
 		}
 
+		for(uint32_t i = 0; i < 9000000; i++)
+		{
+			dontCare = i % 4;
+		}
+
 		if( LedPtr->Off != NULL )
 		{
 			LedPtr->Off();
+		}
+
+		for(uint32_t i = 0; i < 9000000; i++)
+		{
+			dontCare = i % 4;
 		}
 	}
 }
