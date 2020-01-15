@@ -21,6 +21,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "usbd_cdc_if.h"
+#include "VirtualCommDriverMultiTask.h"
 
 /* USER CODE BEGIN INCLUDE */
 
@@ -71,8 +72,8 @@
 /* USER CODE BEGIN PRIVATE_DEFINES */
 /* Define size for the receive and transmit buffer over CDC */
 /* It's up to user to redefine and/or remove those define */
-#define APP_RX_DATA_SIZE  2048
-#define APP_TX_DATA_SIZE  2048
+#define APP_RX_DATA_SIZE  1024
+#define APP_TX_DATA_SIZE  1024
 /* USER CODE END PRIVATE_DEFINES */
 
 /**
@@ -262,17 +263,26 @@ static int8_t CDC_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length)
   *         is complete on CDC interface (ie. using DMA controller) it will result
   *         in receiving more data while previous ones are still not sent.
   *
+  *	This function is actually a callback
   * @param  Buf: Buffer of data to be received
   * @param  Len: Number of data received (in bytes)
   * @retval Result of the operation: USBD_OK if all operations are OK else USBD_FAIL
   */
 static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
 {
-  /* USER CODE BEGIN 6 */
-  USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
-  USBD_CDC_ReceivePacket(&hUsbDeviceFS);
-  return (USBD_OK);
-  /* USER CODE END 6 */
+	/* USER CODE BEGIN 6 */
+	portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
+
+	USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
+	xStreamBufferSendFromISR(	*GetUsbRxStreamBuff(),
+								Buf,
+								*Len,
+								&xHigherPriorityTaskWoken);
+
+	USBD_CDC_ReceivePacket(&hUsbDeviceFS);
+	portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+	return (USBD_OK);
+	/* USER CODE END 6 */
 }
 
 /**

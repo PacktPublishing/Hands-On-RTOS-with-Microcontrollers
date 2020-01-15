@@ -1,0 +1,17 @@
+{
+    "python.pythonPath": "venv\\Scripts\\python.exe",
+    "editor.formatOnSave": true,
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.pylintPath": "pylint",
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django"
+    ],
+    "python.linting.pylintEnabled": true,
+    "python.linting.pycodestyleArgs": [
+        "--ignore=E501"
+    ],
+    "files.exclude": {
+        "**/*.pyc": true
+    }
+}
