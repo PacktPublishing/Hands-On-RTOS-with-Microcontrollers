@@ -28,14 +28,12 @@
 #include <Nucleo_F767ZI_GPIO.h>
 #include <SEGGER_SYSVIEW.h>
 #include <Nucleo_F767ZI_Init.h>
-#include "HandsOnRTOS/VirtualCommDriver.h"
+#include "VirtualCommDriver.h"
 #include <string.h>
 
-/*********************************************
- * A demonstration of improperly using CDC_Transmit_FS for sending data
- * over USB
- *********************************************/
-
+/**
+ * A demonstration using the VirtualCommDriver from a single task
+ */
 
 // some common variables to use for each task
 // 128 * 4 = 512 bytes

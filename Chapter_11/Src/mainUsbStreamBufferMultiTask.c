@@ -28,13 +28,13 @@
 #include <Nucleo_F767ZI_GPIO.h>
 #include <SEGGER_SYSVIEW.h>
 #include <Nucleo_F767ZI_Init.h>
-#include "HandsOnRTOS/VirtualCommDriverMultiTask.h"
+#include "VirtualCommDriverMultiTask.h"
 #include <string.h>
 #include <stdio.h>
 
 /*********************************************
- * A demonstration of improperly using CDC_Transmit_FS for sending data
- * over USB
+ * A demonstration of safely sending data over USB
+ * from multiple tasks
  *********************************************/
 
 
@@ -48,7 +48,7 @@ void usbPrintOutTask( void* Number);
 int main(void)
 {
 	HWInit();
-	VirtualCommInit();
+	VirtualCommInit(256, configMAX_PRIORITIES-2);
 	SEGGER_SYSVIEW_Conf();
 	HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);	//ensure proper priority grouping for freeRTOS
 

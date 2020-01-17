@@ -26,14 +26,24 @@
 #include "VirtualCommDriverMultiTask.h"
 #include <usb_device.h>
 #include "usbd_cdc.h"
-#include <FreeRTOS.h>
-#include <stream_buffer.h>
 #include <task.h>
 #include <semphr.h>
 #include <SEGGER_SYSVIEW.h>
 
-#define txBuffLen 2048
+/**
+ * txBuffLen and rxBuffLen should be at least as large as the lengths defined in usbd_cdc_if.c
+ * to avoid dropped data
+ * if multiple transfers should be placed into vcom_rxStream before being read
+ * by the application, the streamBuffers should be larger
+ *
+ * The way usbd_cdc_if.c is written, any newly received data not fitting into the stream
+ * buffer is dropped
+ **/
+#define txBuffLen 1024
+#define rxBuffLen 1024
+
 uint8_t vcom_usbTxBuff[txBuffLen];
+StreamBufferHandle_t vcom_rxStream = NULL;
 StreamBufferHandle_t vcom_txStream = NULL;
 TaskHandle_t vcom_usbTaskHandle = NULL;
 SemaphoreHandle_t vcom_mutexPtr = NULL;
@@ -42,7 +52,7 @@ SemaphoreHandle_t vcom_mutexPtr = NULL;
 //hUsbDeviceFS defined in usb_device.c
 extern USBD_HandleTypeDef hUsbDeviceFS;
 
-void usbTask( void* NotUsed);
+void usbTxTask( void* NotUsed);
 void usbTxComplete( void );
 
 /********************************** PUBLIC *************************************/
@@ -51,16 +61,35 @@ void usbTxComplete( void );
  * Initialize the USB peripheral and HAL-based USB stack.
  * A transmit task, responsible for pulling data out of the stream buffer and
  * pushing it into the USB peripheral is also created.
+ * @param UsbStackSize	size (in FreeRTOS words) of the stack to be used for
+ * 						the usbTxTask (256 is tested)
+ * @param UsbTxPriority Priority with wich the USB task will be created
 **/
-void VirtualCommInit( void )
+void VirtualCommInit(	const configSTACK_DEPTH_TYPE UsbStackSize,
+						UBaseType_t UsbTxPriority )
 {
 	MX_USB_DEVICE_Init();
 	vcom_txStream = xStreamBufferCreate( txBuffLen, 1);
+	vcom_rxStream  = xStreamBufferCreate( rxBuffLen, 1);
 	assert_param( vcom_txStream != NULL);
+	assert_param( vcom_rxStream != NULL);
 
 	vcom_mutexPtr = xSemaphoreCreateMutex();
 	assert_param(vcom_mutexPtr != NULL);
-	assert_param(xTaskCreate(usbTask, "usbTask", 256, NULL, configMAX_PRIORITIES, &vcom_usbTaskHandle) == pdPASS);
+	assert_param(xTaskCreate(usbTxTask, "usbTx", UsbStackSize, NULL, UsbTxPriority, &vcom_usbTaskHandle) == pdPASS);
+}
+
+/**
+ * return the streamBuffer handle
+ * This is wrapped in a function rather than exposed directly
+ * so external modules aren't able to change where the handle points
+ *
+ * NOTE:	This return value will not be valid until VirtualCommInit has
+ * 			been run
+ */
+StreamBufferHandle_t const* GetUsbRxStreamBuff( void )
+{
+	return &vcom_rxStream;
 }
 
 /**
@@ -111,7 +140,7 @@ int32_t TransmitUsbData(uint8_t const*  Buff, uint16_t Len, int32_t DelayMs)
  * local buffer, which is passed to the HAL USB stack.
  *
  */
-void usbTask( void* NotUsed)
+void usbTxTask( void* NotUsed)
 {
 	USBD_CDC_HandleTypeDef *hcdc = NULL;
 

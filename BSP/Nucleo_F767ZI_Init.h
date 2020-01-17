@@ -32,7 +32,7 @@
 
 
 void HWInit( void );
-
+void PWMInit( void );
 uint32_t StmRand( uint32_t Max, uint32_t Min );
 
 #ifdef __cplusplus

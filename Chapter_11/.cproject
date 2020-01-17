@@ -63,7 +63,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Drivers/CMSIS/DSP/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Middleware/ST/STM32_USB_Device_Library/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Middleware/ST/STM32_USB_Device_Library/Class/CDC/Inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Drivers}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Drivers/HandsOnRTOS}&quot;"/>
 								</option>
 								<option id="com.atollic.truestudio.gcc.symbols.defined.427361890" name="Defined symbols" superClass="com.atollic.truestudio.gcc.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
@@ -219,7 +219,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Drivers/CMSIS/DSP/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Middleware/ST/STM32_USB_Device_Library/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Middleware/ST/STM32_USB_Device_Library/Class/CDC/Inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Drivers}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Drivers/HandsOnRTOS}&quot;"/>
 								</option>
 								<option id="com.atollic.truestudio.gcc.symbols.defined.1891165076" name="Defined symbols" superClass="com.atollic.truestudio.gcc.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
@@ -375,7 +375,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Drivers/CMSIS/DSP/Include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Middleware/ST/STM32_USB_Device_Library/Core/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Middleware/ST/STM32_USB_Device_Library/Class/CDC/Inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Drivers}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Drivers/HandsOnRTOS}&quot;"/>
 								</option>
 								<option id="com.atollic.truestudio.gcc.symbols.defined.860412745" name="Defined symbols" superClass="com.atollic.truestudio.gcc.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
@@ -455,6 +455,27 @@
 							<tool id="com.atollic.truestudio.ar.base.1873345597" name="Archiver" superClass="com.atollic.truestudio.ar.base"/>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="com.atollic.truestudio.exe.debug.1518366166.1511192013.98041230.11165862.560832958.536643566.257218677.1008214371.1107731457.1408518378" name="mainUsbStreamBufferMultiTask.c" rcbsApplicability="disable" resourcePath="Src/mainUsbStreamBufferMultiTask.c" toolsToInvoke="com.atollic.truestudio.exe.debug.toolchain.gcc.1556084162.1495655426">
+						<tool id="com.atollic.truestudio.exe.debug.toolchain.gcc.1556084162.1495655426" name="C Compiler" superClass="com.atollic.truestudio.exe.debug.toolchain.gcc.1556084162">
+							<option id="com.atollic.truestudio.gcc.directories.select.162375255" name="Include path" superClass="com.atollic.truestudio.gcc.directories.select" valueType="includePath">
+								<listOptionValue builtIn="false" value="../Inc"/>
+								<listOptionValue builtIn="false" value="../../BSP"/>
+								<listOptionValue builtIn="false" value="../../Drivers/CMSIS/Include"/>
+								<listOptionValue builtIn="false" value="../../Drivers/CMSIS/Device/ST/STM32F7xx/Include"/>
+								<listOptionValue builtIn="false" value="../../Drivers/STM32F7xx_HAL_Driver/Inc"/>
+								<listOptionValue builtIn="false" value="../../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy"/>
+								<listOptionValue builtIn="false" value="../../Middleware/Third_Party/FreeRTOS/Source/include"/>
+								<listOptionValue builtIn="false" value="../../Middleware/Third_Party/SEGGER"/>
+								<listOptionValue builtIn="false" value="../../Middleware/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2"/>
+								<listOptionValue builtIn="false" value="../../Middleware/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1"/>
+								<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Drivers/CMSIS/DSP/Include}&quot;"/>
+								<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Middleware/ST/STM32_USB_Device_Library/Core/Inc}&quot;"/>
+								<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Middleware/ST/STM32_USB_Device_Library/Class/CDC/Inc}&quot;"/>
+								<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_11/Drivers/HandsOnRTOS}&quot;"/>
+							</option>
+							<inputType id="com.atollic.truestudio.gcc.input.869048745" superClass="com.atollic.truestudio.gcc.input"/>
+						</tool>
+					</fileInfo>
 					<fileInfo id="com.atollic.truestudio.exe.debug.1518366166.1511192013.98041230.11165862.560832958.536643566.257218677.1008214371.1107731457.nofile" name="" rcbsApplicability="disable" resourcePath="nofile" toolsToInvoke="com.atollic.truestudio.exe.debug.toolchain.gcc.298940126">
 						<tool id="com.atollic.truestudio.exe.debug.toolchain.gcc.298940126" name="C Compiler" superClass="com.atollic.truestudio.exe.debug.toolchain.gcc.1556084162">
 							<inputType id="com.atollic.truestudio.gcc.input.1714775665" superClass="com.atollic.truestudio.gcc.input"/>
@@ -582,6 +603,19 @@
 			</profile>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="com.atollic.truestudio.exe.debug.1518366166.1511192013.98041230.11165862.560832958.536643566.257218677;com.atollic.truestudio.exe.debug.1518366166.1511192013.98041230.11165862.560832958.536643566.257218677.;com.atollic.truestudio.exe.debug.toolchain.gcc.1600201846;com.atollic.truestudio.gcc.input.1324363435">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.atollic.truestudio.mbs.ARMToolsPerProjectProfileC"/>
+			<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
+				<buildOutputProvider>
+					<openAction enabled="true" filePath=""/>
+					<parser enabled="true"/>
+				</buildOutputProvider>
+				<scannerInfoProvider id="makefileGenerator">
+					<runAction arguments="-f ${project_name}_scd.mk" command="make" useDefault="true"/>
+					<parser enabled="true"/>
+				</scannerInfoProvider>
+			</profile>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="com.atollic.truestudio.exe.debug.1518366166.1511192013.98041230.11165862.560832958.536643566.257218677.1008214371.1107731457;com.atollic.truestudio.exe.debug.1518366166.1511192013.98041230.11165862.560832958.536643566.257218677.1008214371.1107731457.;com.atollic.truestudio.exe.debug.toolchain.gcc.1556084162;com.atollic.truestudio.gcc.input.546066065">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.atollic.truestudio.mbs.ARMToolsPerProjectProfileC"/>
 			<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
 				<buildOutputProvider>

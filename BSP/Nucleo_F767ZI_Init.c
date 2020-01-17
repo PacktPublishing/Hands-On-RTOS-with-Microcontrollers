@@ -2,6 +2,7 @@
 #include <main.h>
 #include <SEGGER_SYSVIEW.h>
 
+// declarations for 'private' functions not exposed via header file
 void SystemClock_Config(void);
 static void gpioPinsInit(void);
 static void rngInit(void);
@@ -9,6 +10,12 @@ static void rngInit(void);
 UART_HandleTypeDef huart4;
 UART_HandleTypeDef uartInitStruct;
 /************************************* PUBLIC FUNCTIONS **************************/
+
+/**
+ * Initialize the minimum amount of hardware that will be used in all examples
+ * Other initialization might also be necessary (PWM for LED's, USART's, USB, etc)
+ * and should be performed after the initial call to HWInit
+ */
 void HWInit( void )
 {
 	HAL_Init();

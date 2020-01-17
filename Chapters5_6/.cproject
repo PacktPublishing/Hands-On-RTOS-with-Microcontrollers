@@ -45,13 +45,13 @@
 									<listOptionValue builtIn="false" value="../Inc"/>
 									<listOptionValue builtIn="false" value="../../Drivers/CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="../../Drivers/CMSIS/Device/ST/STM32F7xx/Include"/>
-									<listOptionValue builtIn="false" value="../../Drivers/STM32F7xx_HAL_Driver/Inc"/>
 									<listOptionValue builtIn="false" value="../../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy"/>
 									<listOptionValue builtIn="false" value="../../Middleware/Third_Party/FreeRTOS/Source/include"/>
 									<listOptionValue builtIn="false" value="../../Middleware/Third_Party/SEGGER"/>
 									<listOptionValue builtIn="false" value="../../Middleware/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2"/>
-									<listOptionValue builtIn="false" value="../../Middleware/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_5_6/BSP}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_5_6/Drivers/STM32F7xx_HAL_Driver/Inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Chapter_5_6/Middleware/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1}&quot;"/>
 								</option>
 								<option id="com.atollic.truestudio.gcc.symbols.defined.1670122205" name="Defined symbols" superClass="com.atollic.truestudio.gcc.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
@@ -135,7 +135,7 @@
 						</tool>
 					</fileInfo>
 					<sourceEntries>
-						<entry excluding="Middleware/ST/STM32_USB_Device_Library|BSP/usbd_desc.c|BSP/usbd_conf.c|BSP/usbd_cdc_if.c|BSP/usb_device.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|BSP/ADC1.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Drivers/HandsOnRTOS|Middleware/ST/STM32_USB_Device_Library|BSP/usbd_desc.c|BSP/usbd_conf.c|BSP/usbd_cdc_if.c|BSP/usb_device.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|BSP/ADC1.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -274,7 +274,7 @@
 						</tool>
 					</fileInfo>
 					<sourceEntries>
-						<entry excluding="Middleware/ST/STM32_USB_Device_Library|BSP/usbd_desc.c|BSP/usbd_conf.c|BSP/usbd_cdc_if.c|BSP/usb_device.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|BSP/ADC1.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Drivers/HandsOnRTOS|Middleware/ST/STM32_USB_Device_Library|BSP/usbd_desc.c|BSP/usbd_conf.c|BSP/usbd_cdc_if.c|BSP/usb_device.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|BSP/ADC1.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

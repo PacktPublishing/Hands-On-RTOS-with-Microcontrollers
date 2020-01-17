@@ -71,7 +71,7 @@ int main(void)
 
 	//setup tasks, making sure they have been properly created before moving on
 	assert_param(xTaskCreate(recvTask, "recvTask", STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL) == pdPASS);
-	assert_param(xTaskCreate(sendingTask, "sendingTask", STACK_SIZE, NULL, configMAX_PRIORITIES – 1, NULL) == pdPASS);
+	assert_param(xTaskCreate(sendingTask, "sendingTask", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL) == pdPASS);
 
 	/**
 	 * create a queue that can store up to 8 copies of the struct
