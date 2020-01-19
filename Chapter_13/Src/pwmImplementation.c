@@ -96,16 +96,16 @@ void SetBlueDuty( float DutyCycle )
 {
 	TIM4->CCR2 = DutyCycle/100.0 * 65535;
 }
-iPWM BluePWM = {SetBlueDuty};
+iPWM BluePWM = {.SetDutyCycle = SetBlueDuty};
 
 void SetGreenDuty( float DutyCycle )
 {
 	TIM3->CCR3 = DutyCycle/100.0 * 65535;
 }
-iPWM GreenPWM = {SetGreenDuty};
+iPWM GreenPWM = {.SetDutyCycle = SetGreenDuty};
 
 void SetRedDuty( float DutyCycle )
 {
 	TIM12->CCR1 = DutyCycle/100.0 * 65535;
 }
-iPWM RedPWM = {SetRedDuty};
+iPWM RedPWM = {.SetDutyCycle = SetRedDuty};
