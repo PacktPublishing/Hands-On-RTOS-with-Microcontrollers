@@ -13,5 +13,6 @@
     ],
     "files.exclude": {
         "**/*.pyc": true
-    }
+    },
+    "git.ignoreLimitWarning": true
 }

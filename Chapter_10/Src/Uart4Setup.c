@@ -56,6 +56,12 @@ void SetupUart4ExternalSim( uint32_t BaudRate )
 	//also enable DMA for UART4 Transmits
 	UART4->CR3 |= USART_CR3_DMAT_Msk;
 
+	/**
+	 *	start the repeating DMA transfer.  Eventually, non-circular
+	 *	receivers will loose a character here or there at high baudrates.
+	 *	When this happens, SEGGER_SYSVIEW_Print() will stop printing when it hits
+	 *	the first NULL character.
+	 */
 	uart4TxDmaStartRepeat(uart4Msg, sizeof(uart4Msg));
 }
 

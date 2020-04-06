@@ -1,9 +1,10 @@
-#include <Nucleo_F767ZI_GPIO.h>
-
 /**
  * LED implementation for Red, Green, and Blue discrete LED's on
  * Nucleo-F767ZI
  */
+
+#include <Nucleo_F767ZI_GPIO.h>
+#include <stm32f7xx_hal.h>
 
 void GreenOn ( void ) {HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);}
 void GreenOff ( void ) {HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);}

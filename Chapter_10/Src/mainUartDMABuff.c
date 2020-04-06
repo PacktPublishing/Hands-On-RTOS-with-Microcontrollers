@@ -65,6 +65,7 @@ static DMA_HandleTypeDef usart2DmaRx;
 
 int main(void)
 {
+	BaseType_t retVal;
 	HWInit();
 	SEGGER_SYSVIEW_Conf();
 
@@ -90,7 +91,8 @@ int main(void)
 	rxDone = xSemaphoreCreateBinary();
 	assert_param(rxDone != NULL);
 
-	assert_param(xTaskCreate(uartPrintOutTask, "uartPrint", STACK_SIZE, NULL, tskIDLE_PRIORITY + 3, NULL) == pdPASS);
+	retVal = xTaskCreate(uartPrintOutTask, "uartPrint", STACK_SIZE, NULL, tskIDLE_PRIORITY + 3, NULL);
+	assert_param(retVal == pdPASS);
 
 	//start the scheduler - shouldn't return unless there's a problem
 	vTaskStartScheduler();
@@ -107,6 +109,7 @@ int main(void)
  */
 void setupUSART2DMA( void )
 {
+	HAL_StatusTypeDef retVal;
 	__HAL_RCC_DMA1_CLK_ENABLE();
 	
 	NVIC_SetPriority(DMA1_Stream5_IRQn, 6);
@@ -127,7 +130,8 @@ void setupUSART2DMA( void )
 	usart2DmaRx.Init.PeriphInc = DMA_PINC_DISABLE;		//always keep the peripheral address the same (the RX data register is always in the same location)
 	usart2DmaRx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
 	usart2DmaRx.Init.Priority = DMA_PRIORITY_HIGH;
-	assert_param(HAL_DMA_Init(&usart2DmaRx) == HAL_OK);
+	retVal = HAL_DMA_Init(&usart2DmaRx);
+	assert_param(retVal == HAL_OK);
 
 	DMA1_Stream5->CR |= DMA_SxCR_TCIE;	//enable transfer complete interrupts
 	USART2->CR3 |= USART_CR3_DMAR_Msk;	//set the DMA receive mode flag in the USART
@@ -186,9 +190,10 @@ void stopReceiveDMA( void )
 
 void uartPrintOutTask( void* NotUsed)
 {
-	uint8_t rxData[20];
-	uint8_t expectedLen = 16;
-	memset((void*)rxData, 0, 20);
+#define MSG_LEN 16
+	uint8_t rxData[MSG_LEN];
+	uint8_t expectedLen = MSG_LEN;
+	memset((void*)rxData, 0, MSG_LEN);
 
 	setupUSART2DMA();
 	STM_UartInit(USART2, BAUDRATE, NULL, &usart2DmaRx);
@@ -201,7 +206,7 @@ void uartPrintOutTask( void* NotUsed)
 			//0 signals completion
 			if(DMA1_Stream5->NDTR == 0)
 			{
-				SEGGER_SYSVIEW_PrintfHost("received: ");
+				SEGGER_SYSVIEW_Print("received: ");
 				SEGGER_SYSVIEW_Print((char*)rxData);
 			}
 			else

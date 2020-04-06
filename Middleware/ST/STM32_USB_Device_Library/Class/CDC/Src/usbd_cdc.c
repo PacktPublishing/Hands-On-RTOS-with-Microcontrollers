@@ -471,7 +471,8 @@ __ALIGN_BEGIN uint8_t USBD_CDC_OtherSpeedCfgDesc[USB_CDC_CONFIG_DESC_SIZ] __ALIG
 static uint8_t  USBD_CDC_Init (USBD_HandleTypeDef *pdev, uint8_t cfgidx)
 {
   uint8_t ret = 0U;
-  USBD_CDC_HandleTypeDef   *hcdc;
+  static USBD_CDC_HandleTypeDef cdcStorage;
+  USBD_CDC_HandleTypeDef* hcdc = &cdcStorage;	//statically allocate space for usb cdc to avoid malloc
 
   if(pdev->dev_speed == USBD_SPEED_HIGH)
   {
@@ -506,39 +507,29 @@ static uint8_t  USBD_CDC_Init (USBD_HandleTypeDef *pdev, uint8_t cfgidx)
   USBD_LL_OpenEP(pdev, CDC_CMD_EP, USBD_EP_TYPE_INTR, CDC_CMD_PACKET_SIZE);
   pdev->ep_in[CDC_CMD_EP & 0xFU].is_used = 1U;
 
-  pdev->pClassData = USBD_malloc(sizeof (USBD_CDC_HandleTypeDef));
+  pdev->pClassData = hcdc;
   memset(pdev->pClassData,0,sizeof(USBD_CDC_HandleTypeDef)); // THIS LINE WAS ADDED
 
+	/* Init  physical Interface components */
+	((USBD_CDC_ItfTypeDef *)pdev->pUserData)->Init();
 
-  if(pdev->pClassData == NULL)
-  {
-    ret = 1U;
-  }
-  else
-  {
-    hcdc = (USBD_CDC_HandleTypeDef*) pdev->pClassData;
+	/* Init Xfer states */
+	hcdc->TxState = 0U;
+	hcdc->RxState = 0U;
+	hcdc->TxCallBack = NULL;
 
-    /* Init  physical Interface components */
-    ((USBD_CDC_ItfTypeDef *)pdev->pUserData)->Init();
-
-    /* Init Xfer states */
-    hcdc->TxState = 0U;
-    hcdc->RxState = 0U;
-    hcdc->TxCallBack = NULL;
-
-    if(pdev->dev_speed == USBD_SPEED_HIGH)
-    {
-      /* Prepare Out endpoint to receive next packet */
-      USBD_LL_PrepareReceive(pdev, CDC_OUT_EP, hcdc->RxBuffer,
-                             CDC_DATA_HS_OUT_PACKET_SIZE);
-    }
-    else
-    {
-      /* Prepare Out endpoint to receive next packet */
-      USBD_LL_PrepareReceive(pdev, CDC_OUT_EP, hcdc->RxBuffer,
-                             CDC_DATA_FS_OUT_PACKET_SIZE);
-    }
-  }
+	if(pdev->dev_speed == USBD_SPEED_HIGH)
+	{
+	  /* Prepare Out endpoint to receive next packet */
+	  USBD_LL_PrepareReceive(pdev, CDC_OUT_EP, hcdc->RxBuffer,
+							 CDC_DATA_HS_OUT_PACKET_SIZE);
+	}
+	else
+	{
+	  /* Prepare Out endpoint to receive next packet */
+	  USBD_LL_PrepareReceive(pdev, CDC_OUT_EP, hcdc->RxBuffer,
+							 CDC_DATA_FS_OUT_PACKET_SIZE);
+}
   return ret;
 }
 
@@ -569,7 +560,7 @@ static uint8_t  USBD_CDC_DeInit (USBD_HandleTypeDef *pdev, uint8_t cfgidx)
   if(pdev->pClassData != NULL)
   {
     ((USBD_CDC_ItfTypeDef *)pdev->pUserData)->DeInit();
-    USBD_free(pdev->pClassData);
+//    USBD_free(pdev->pClassData);		not needed because malloc wasn't used
     pdev->pClassData = NULL;
   }
 

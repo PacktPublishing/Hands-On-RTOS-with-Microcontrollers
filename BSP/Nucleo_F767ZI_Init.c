@@ -1,3 +1,4 @@
+#include <FreeRTOS.h>
 #include "Nucleo_F767ZI_Init.h"
 #include <main.h>
 #include <SEGGER_SYSVIEW.h>

@@ -65,6 +65,7 @@ void initUart4Pins( void )
  */
 void STM_UartInit( USART_TypeDef* STM_UART_PERIPH, uint32_t Baudrate, DMA_HandleTypeDef* DmaTx, DMA_HandleTypeDef* DmaRx )
 {
+	HAL_StatusTypeDef retVal;
 	UART_HandleTypeDef uartInitStruct;
 	assert_param(	STM_UART_PERIPH == USART2 ||
 					STM_UART_PERIPH == UART4 );
@@ -93,5 +94,6 @@ void STM_UartInit( USART_TypeDef* STM_UART_PERIPH, uint32_t Baudrate, DMA_Handle
 	uartInitStruct.hdmarx = DmaRx;
 	uartInitStruct.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
 
-	assert_param(HAL_UART_Init(&uartInitStruct) == HAL_OK);
+	retVal = HAL_UART_Init(&uartInitStruct);
+	assert_param(retVal == HAL_OK);
 }
