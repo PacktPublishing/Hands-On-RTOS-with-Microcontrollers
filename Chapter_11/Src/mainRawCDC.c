@@ -28,6 +28,7 @@
 #include <Nucleo_F767ZI_GPIO.h>
 #include <SEGGER_SYSVIEW.h>
 #include <Nucleo_F767ZI_Init.h>
+#include <stm32f7xx_hal.h>
 #include <usb_device.h>
 #include <usbd_cdc_if.h>
 

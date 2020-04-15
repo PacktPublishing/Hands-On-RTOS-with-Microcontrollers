@@ -31,6 +31,7 @@
 #include <Nucleo_F767ZI_GPIO.h>
 #include <SEGGER_SYSVIEW.h>
 #include <Nucleo_F767ZI_Init.h>
+#include <stm32f7xx_hal.h>
 #include <UartQuickDirtyInit.h>
 #include "Uart4Setup.h"
 #include <stdbool.h>

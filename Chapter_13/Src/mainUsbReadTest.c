@@ -28,6 +28,7 @@
 #include <Nucleo_F767ZI_GPIO.h>
 #include <SEGGER_SYSVIEW.h>
 #include <Nucleo_F767ZI_Init.h>
+#include <stm32f7xx_hal.h>
 #include "VirtualCommDriverMultiTask.h"
 #include <string.h>
 #include <stdio.h>
@@ -42,15 +43,20 @@ void usbPrintOutTask( void* Number);
 
 int main(void)
 {
+	BaseType_t retVal;
+
 	HWInit();
 	VirtualCommInit(256, configMAX_PRIORITIES-2);
 	SEGGER_SYSVIEW_Conf();
 	HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);	//ensure proper priority grouping for freeRTOS
 
 	//setup tasks, making sure they have been properly created before moving on
-	assert_param(xTaskCreate(monitorUsbRx, "usbRx", STACK_SIZE, NULL, configMAX_PRIORITIES-1, NULL) == pdPASS);
-	assert_param(xTaskCreate(usbPrintOutTask, "usbprint1", STACK_SIZE, (void*)1, tskIDLE_PRIORITY + 2, NULL) == pdPASS);
-	assert_param(xTaskCreate(usbPrintOutTask, "usbprint2", STACK_SIZE, (void*)2, tskIDLE_PRIORITY + 2, NULL) == pdPASS);
+	retVal = xTaskCreate(monitorUsbRx, "usbRx", STACK_SIZE, NULL, configMAX_PRIORITIES-1, NULL);
+	assert_param(retVal == pdPASS);
+	retVal = xTaskCreate(usbPrintOutTask, "usbprint1", STACK_SIZE, (void*)1, tskIDLE_PRIORITY + 2, NULL);
+	assert_param(retVal == pdPASS);
+	retVal = xTaskCreate(usbPrintOutTask, "usbprint2", STACK_SIZE, (void*)2, tskIDLE_PRIORITY + 2, NULL);
+	assert_param(retVal == pdPASS);
 
 	//start the scheduler - shouldn't return unless there's a problem
 	vTaskStartScheduler();

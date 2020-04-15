@@ -25,7 +25,7 @@
 
 #include <FreeRTOS.h>
 #include <Nucleo_F767ZI_Init.h>
-#include <main.h>
+#include <stm32f7xx_hal.h>
 
 /**
  * ledImplementation.c/h contains the hardware
