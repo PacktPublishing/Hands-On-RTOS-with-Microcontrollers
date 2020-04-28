@@ -146,6 +146,10 @@ standard names. */
 #define vPortSVCHandler    SVC_Handler
 #define xPortPendSVHandler PendSV_Handler
 
+/* FreeRTOS_POSIX required configs */
+#define configUSE_POSIX_ERRNO 1
+#define configUSE_APPLICATION_TASK_TAG 1
+
 /* IMPORTANT: This define is commented when used with STM32Cube firmware, when the timebase source is SysTick,
               to prevent overwriting SysTick_Handler defined within STM32Cube HAL */
 /* #define xPortSysTickHandler SysTick_Handler */

@@ -38,6 +38,7 @@
  * the new RTOS)
  */
 #include <FreeRTOS.h>
+#include <assert.h>
 
 /**
  * specify the RTOS Task Control Block size (in bytes)

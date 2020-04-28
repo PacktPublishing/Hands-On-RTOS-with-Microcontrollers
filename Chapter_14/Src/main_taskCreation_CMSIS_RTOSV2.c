@@ -70,7 +70,7 @@ int main(void)
 	//initialize the kernel - this will setup any required
 	//heap regions (if using FreeRTOS heap5)
 	status = osKernelInitialize();
-	while(status != osOK);
+	assert(status == osOK);
 
 	//start the green task
 	osThreadAttr_t greenThreadAtrribs = {	.name = "GreenTask",
@@ -83,7 +83,7 @@ int main(void)
 											.tz_module = 0,
 											.reserved = 0};
 	greenTaskThreadID = osThreadNew( GreenTask, NULL, &greenThreadAtrribs);
-	while(greenTaskThreadID == NULL);
+	assert(greenTaskThreadID != NULL);
 
 
 	//start the red task
@@ -98,10 +98,10 @@ int main(void)
 											.tz_module = 0,
 											.reserved = 0};
 	redTaskThreadID = osThreadNew( RedTask, NULL, &redThreadAtrribs);
-	while(redTaskThreadID == NULL);
+	assert(redTaskThreadID != NULL);
 
 	status = osKernelStart();
-	while(status != osOK);
+	assert(status == osOK);
 
 	//if you've wound up here, there is likely an issue with overrunning the freeRTOS heap
 	while(1)

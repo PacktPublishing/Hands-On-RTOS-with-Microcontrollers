@@ -81,12 +81,12 @@
 		<link>
 			<name>Drivers</name>
 			<type>2</type>
-			<location>C:/projects/testRepo/Hands-On-RTOS-with-Microcontrollers/Drivers</location>
+			<location>C:/projects/packtBookRTOS/Drivers</location>
 		</link>
 		<link>
 			<name>Middleware</name>
 			<type>2</type>
-			<location>C:/projects/testRepo/Hands-On-RTOS-with-Microcontrollers/Middleware</location>
+			<location>C:/projects/packtBookRTOS/Middleware</location>
 		</link>
 	</linkedResources>
 </projectDescription>
