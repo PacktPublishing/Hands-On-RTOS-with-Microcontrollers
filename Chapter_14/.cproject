@@ -116,7 +116,7 @@
 					</folderInfo>
 					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.246189133.nofile" name="nofile" rcbsApplicability="disable" resourcePath="nofile" toolsToInvoke=""/>
 					<sourceEntries>
-						<entry excluding="Middleware/Third_Party/FreeRTOS_POSIX|Src/main_taskCreation_POSIX.c|Drivers/HandsOnRTOS|Middleware/ST/STM32_USB_Device_Library|BSP/usbd_desc.c|BSP/usbd_conf.c|BSP/usbd_cdc_if.c|BSP/usb_device.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|BSP/ADC1.c|Src/main_FailedStartup.c|Src/main_Polled.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name=""/>
+						<entry excluding="Src/main_taskCreation_POSIX.c|Middleware/Third_Party/FreeRTOS/FreeRTOS_POSIX|Middleware/Third_Party/FreeRTOS_POSIX|Drivers/HandsOnRTOS|Middleware/ST/STM32_USB_Device_Library|BSP/usbd_desc.c|BSP/usbd_conf.c|BSP/usbd_cdc_if.c|BSP/usb_device.c|BSP/TIM9_UnderRTOS_Radar_ISR.c|BSP/ADC1.c|Src/main_FailedStartup.c|Src/main_Polled.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
