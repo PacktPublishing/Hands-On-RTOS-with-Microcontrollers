@@ -1,4 +1,5 @@
 from serial.tools import list_ports
+
 from serial import Serial
 from serial import SerialException
 import PySimpleGUI as sg
