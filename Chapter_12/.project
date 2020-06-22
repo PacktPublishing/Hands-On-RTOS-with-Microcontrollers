@@ -76,22 +76,22 @@
 		<link>
 			<name>BSP</name>
 			<type>2</type>
-			<location>C:/projects/packtBookRTOS/BSP</location>
+			<locationURI>PARENT-1-PROJECT_LOC/BSP</locationURI>
 		</link>
 		<link>
 			<name>Drivers</name>
 			<type>2</type>
-			<location>C:/projects/packtBookRTOS/Drivers</location>
+			<locationURI>PARENT-1-PROJECT_LOC/Drivers</locationURI>
 		</link>
 		<link>
 			<name>Interfaces</name>
 			<type>2</type>
-			<location>C:/projects/packtBookRTOS/Interfaces</location>
+			<locationURI>PARENT-1-PROJECT_LOC/Interfaces</locationURI>
 		</link>
 		<link>
 			<name>Middleware</name>
 			<type>2</type>
-			<location>C:/projects/packtBookRTOS/Middleware</location>
+			<locationURI>PARENT-1-PROJECT_LOC/Middleware</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
