@@ -11,7 +11,7 @@
 **
 **  Environment : System Workbench for MCU
 **
-**  Distribution: The file is distributed “as is,” without any warranty
+**  Distribution: The file is distributed ï¿½as is,ï¿½ without any warranty
 **                of any kind.
 **
 *****************************************************************************
@@ -65,6 +65,7 @@ register char * stack_ptr asm("sp");
 char *__env[1] = { 0 };
 char **environ = __env;
 
+struct tms;
 
 /* Functions */
 void initialise_monitor_handles()
