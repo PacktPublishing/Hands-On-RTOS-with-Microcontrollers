@@ -45,8 +45,8 @@
 /**
  * 	function prototypes
  */
-void GreenTask(void *argument);
-void RedTask(void *argument);
+void* GreenTask(void *argument);
+void* RedTask(void *argument);
 void lookBusy( void );
 
 pthread_t greenThreadId, redThreadId;
@@ -54,8 +54,6 @@ pthread_t greenThreadId, redThreadId;
 int main(void)
 {
 	int retVal;
-	void* greenTaskThreadID = NULL;
-	void* redTaskThreadID = NULL;
 	HWInit();
 
 	//start the green task
@@ -74,7 +72,7 @@ int main(void)
 	}
 }
 
-void GreenTask(void *argument)
+void* GreenTask(void *argument)
 {
 	while(1)
 	{
@@ -85,7 +83,7 @@ void GreenTask(void *argument)
 	}
 }
 
-void RedTask( void* argument )
+void* RedTask( void* argument )
 {
 	while(1)
 	{
@@ -99,7 +97,7 @@ void RedTask( void* argument )
 
 void lookBusy( void )
 {
-	volatile uint32_t dontCare;
+	__attribute__ ((unused)) volatile uint32_t dontCare;
 	for(int i = 0; i < 50E3; i++)
 	{
 		dontCare = i % 4;

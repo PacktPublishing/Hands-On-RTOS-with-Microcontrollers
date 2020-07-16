@@ -134,7 +134,7 @@ void RedTask( void* argument )
 
 void lookBusy( void )
 {
-	volatile uint32_t dontCare;
+	__attribute__ ((unused)) volatile uint32_t dontCare;
 	for(int i = 0; i < 50E3; i++)
 	{
 		dontCare = i % 4;
