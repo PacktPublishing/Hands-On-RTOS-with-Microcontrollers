@@ -54,6 +54,7 @@ static StaticTask_t RedTaskTCB;
 int main(void)
 {
 	HWInit();
+	SEGGER_SYSVIEW_Conf();
 
 	//using an inlined if statement with an infinite while loop to stop in case
 	//the task wasn't created successfully
