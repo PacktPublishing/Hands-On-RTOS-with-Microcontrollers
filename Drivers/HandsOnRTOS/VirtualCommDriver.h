@@ -29,9 +29,12 @@
 #endif
 
 #include <stdint.h>
+#include <FreeRTOS.h>
+#include <stream_buffer.h>
 
 void VirtualCommInit( void );
 
+StreamBufferHandle_t const* GetUsbRxStreamBuff( void );
 int32_t TransmitUsbData(uint8_t const* Buff, uint16_t Len);
 int32_t TransmitUsbDataLossy(uint8_t const* Buff, uint16_t Len);
 

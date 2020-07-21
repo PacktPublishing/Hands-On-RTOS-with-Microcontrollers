@@ -41,9 +41,12 @@
  * is created before this file is able to be used across more than one file.
  */
 #define txBuffLen 2048
+#define rxBuffLen 2048
 static uint8_t usbTxBuff[txBuffLen];
 static StreamBufferHandle_t txStream = NULL;
 static TaskHandle_t usbTaskHandle = NULL;
+
+StreamBufferHandle_t vcom_rxStream = NULL;
 
 
 //hUsbDeviceFS defined in usb_device.c
@@ -63,8 +66,23 @@ void VirtualCommInit( void )
 {
 	MX_USB_DEVICE_Init();
 	txStream = xStreamBufferCreate( txBuffLen, 1);
+	vcom_rxStream  = xStreamBufferCreate( rxBuffLen, 1);
 	assert_param( txStream != NULL);
+	assert_param( vcom_rxStream != NULL);
 	assert_param(xTaskCreate(usbTask, "usbTask", 256, NULL, configMAX_PRIORITIES, &usbTaskHandle) == pdPASS);
+}
+
+/**
+ * return the streamBuffer handle
+ * This is wrapped in a function rather than exposed directly
+ * so external modules aren't able to change where the handle points
+ *
+ * NOTE:	This return value will not be valid until VirtualCommInit has
+ * 			been run
+ */
+StreamBufferHandle_t const* GetUsbRxStreamBuff( void )
+{
+	return &vcom_rxStream;
 }
 
 /**
