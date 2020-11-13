@@ -121,7 +121,7 @@ void BlueTaskB( void* argument )
 
 		//repeateadly poll on flag.  As soon as it is non-zero,
 		//blink the blue LED 3 times
-	    while(!flag){ vTaskDelay(1);}
+	    while(!flag);
 
 
 		SEGGER_SYSVIEW_PrintfHost("Task B (Blue LED) received flag");
