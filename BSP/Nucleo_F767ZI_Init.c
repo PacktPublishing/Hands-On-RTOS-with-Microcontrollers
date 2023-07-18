@@ -60,7 +60,7 @@ void SystemClock_Config(void)
 	RCC_OscInitStruct.PLL.PLLN = 216;
 	RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
 	RCC_OscInitStruct.PLL.PLLQ = 9;
-	RCC_OscInitStruct.PLL.PLLR = 2;	//NOTE: this line was not supplied by HAL - it simply
+//	RCC_OscInitStruct.PLL.PLLR = 2;	//NOTE: this line was not supplied by HAL - it simply
 									//sets the struct to match MCU defaults
 	if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
 	{

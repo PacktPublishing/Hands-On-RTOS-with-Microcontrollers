@@ -54,8 +54,8 @@
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
 									<listOptionValue builtIn="false" value="__packed=__attribute__((__packed__))"/>
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
-									<listOptionValue builtIn="false" value="STM32F767xx"/>
 									<listOptionValue builtIn="false" value="USE_FULL_ASSERT=1"/>
+									<listOptionValue builtIn="false" value="STM32F746xx"/>
 								</option>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction.510571491" name="Place functions in their own sections (-ffunction-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata.184510375" name="Place data in their own sections (-fdata-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata" useByScannerDiscovery="false" value="true" valueType="boolean"/>
@@ -168,8 +168,8 @@
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
 									<listOptionValue builtIn="false" value="__packed=__attribute__((__packed__))"/>
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
-									<listOptionValue builtIn="false" value="STM32F767xx"/>
 									<listOptionValue builtIn="false" value="USE_FULL_ASSERT=1"/>
+									<listOptionValue builtIn="false" value="STM32F746xx"/>
 								</option>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction.238783814" name="Place functions in their own sections (-ffunction-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata.1355871793" name="Place data in their own sections (-fdata-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata" useByScannerDiscovery="false" value="true" valueType="boolean"/>
@@ -282,8 +282,8 @@
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
 									<listOptionValue builtIn="false" value="__packed=__attribute__((__packed__))"/>
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
-									<listOptionValue builtIn="false" value="STM32F767xx"/>
 									<listOptionValue builtIn="false" value="USE_FULL_ASSERT=1"/>
+									<listOptionValue builtIn="false" value="STM32F746xx"/>
 								</option>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction.1749233367" name="Place functions in their own sections (-ffunction-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata.1448977575" name="Place data in their own sections (-fdata-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata" useByScannerDiscovery="false" value="true" valueType="boolean"/>
@@ -396,8 +396,8 @@
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
 									<listOptionValue builtIn="false" value="__packed=__attribute__((__packed__))"/>
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
-									<listOptionValue builtIn="false" value="STM32F767xx"/>
 									<listOptionValue builtIn="false" value="USE_FULL_ASSERT=1"/>
+									<listOptionValue builtIn="false" value="STM32F746xx"/>
 								</option>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction.1343490125" name="Place functions in their own sections (-ffunction-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata.621395638" name="Place data in their own sections (-fdata-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata" useByScannerDiscovery="false" value="true" valueType="boolean"/>
@@ -510,8 +510,8 @@
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
 									<listOptionValue builtIn="false" value="__packed=__attribute__((__packed__))"/>
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
-									<listOptionValue builtIn="false" value="STM32F767xx"/>
 									<listOptionValue builtIn="false" value="USE_FULL_ASSERT=1"/>
+									<listOptionValue builtIn="false" value="STM32F746xx"/>
 								</option>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction.180679507" name="Place functions in their own sections (-ffunction-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata.1977230527" name="Place data in their own sections (-fdata-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata" useByScannerDiscovery="false" value="true" valueType="boolean"/>
@@ -624,8 +624,8 @@
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
 									<listOptionValue builtIn="false" value="__packed=__attribute__((__packed__))"/>
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
-									<listOptionValue builtIn="false" value="STM32F767xx"/>
 									<listOptionValue builtIn="false" value="USE_FULL_ASSERT=1"/>
+									<listOptionValue builtIn="false" value="STM32F746xx"/>
 								</option>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction.1971932473" name="Place functions in their own sections (-ffunction-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata.1877579874" name="Place data in their own sections (-fdata-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata" useByScannerDiscovery="false" value="true" valueType="boolean"/>

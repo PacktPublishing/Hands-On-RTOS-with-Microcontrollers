@@ -61,9 +61,9 @@
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
 									<listOptionValue builtIn="false" value="__packed=__attribute__((__packed__))"/>
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
-									<listOptionValue builtIn="false" value="STM32F767xx"/>
 									<listOptionValue builtIn="false" value="USE_FULL_ASSERT=1"/>
 									<listOptionValue builtIn="false" value="ARM_MATH_CM7=1"/>
+									<listOptionValue builtIn="false" value="STM32F746xx"/>
 								</option>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction.1497587642" name="Place functions in their own sections (-ffunction-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata.1982949076" name="Place data in their own sections (-fdata-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata" useByScannerDiscovery="false" value="true" valueType="boolean"/>
@@ -183,9 +183,9 @@
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
 									<listOptionValue builtIn="false" value="__packed=__attribute__((__packed__))"/>
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
-									<listOptionValue builtIn="false" value="STM32F767xx"/>
 									<listOptionValue builtIn="false" value="USE_FULL_ASSERT=1"/>
 									<listOptionValue builtIn="false" value="ARM_MATH_CM7=1"/>
+									<listOptionValue builtIn="false" value="STM32F746xx"/>
 								</option>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction.735407355" name="Place functions in their own sections (-ffunction-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata.1923756270" name="Place data in their own sections (-fdata-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata" useByScannerDiscovery="false" value="true" valueType="boolean"/>

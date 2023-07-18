@@ -54,7 +54,7 @@
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
 									<listOptionValue builtIn="false" value="__packed=__attribute__((__packed__))"/>
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
-									<listOptionValue builtIn="false" value="STM32F767xx"/>
+									<listOptionValue builtIn="false" value="STM32F746xx"/>
 								</option>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction.35633149" name="Place functions in their own sections (-ffunction-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata.264326006" name="Place data in their own sections (-fdata-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata" useByScannerDiscovery="false" value="true" valueType="boolean"/>
@@ -167,7 +167,7 @@
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
 									<listOptionValue builtIn="false" value="__packed=__attribute__((__packed__))"/>
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
-									<listOptionValue builtIn="false" value="STM32F767xx"/>
+									<listOptionValue builtIn="false" value="STM32F746xx"/>
 								</option>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction.541002770" name="Place functions in their own sections (-ffunction-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata.1988118532" name="Place data in their own sections (-fdata-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata" useByScannerDiscovery="false" value="true" valueType="boolean"/>
@@ -280,7 +280,7 @@
 									<listOptionValue builtIn="false" value="__weak=__attribute__((weak))"/>
 									<listOptionValue builtIn="false" value="__packed=__attribute__((__packed__))"/>
 									<listOptionValue builtIn="false" value="USE_HAL_DRIVER"/>
-									<listOptionValue builtIn="false" value="STM32F767xx"/>
+									<listOptionValue builtIn="false" value="STM32F746xx"/>
 								</option>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction.1737813647" name="Place functions in their own sections (-ffunction-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.ffunction" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata.1808859000" name="Place data in their own sections (-fdata-sections)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.fdata" useByScannerDiscovery="false" value="true" valueType="boolean"/>
@@ -391,6 +391,19 @@
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="com.atollic.truestudio.exe.debug.1518366166;com.atollic.truestudio.exe.debug.1518366166.;com.atollic.truestudio.exe.debug.toolchain.gcc.1836874447;com.atollic.truestudio.gcc.input.850396938">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+			<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
+				<buildOutputProvider>
+					<openAction enabled="true" filePath=""/>
+					<parser enabled="true"/>
+				</buildOutputProvider>
+				<scannerInfoProvider id="makefileGenerator">
+					<runAction arguments="-f ${project_name}_scd.mk" command="make" useDefault="true"/>
+					<parser enabled="true"/>
+				</scannerInfoProvider>
+			</profile>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.246189133.1977819015.795265951;com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.246189133.1977819015.795265951.;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1937424228;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.760319417">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 			<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
 				<buildOutputProvider>
 					<openAction enabled="true" filePath=""/>
