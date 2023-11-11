@@ -1,7 +1,6 @@
 #include <stddef.h>
 #include <stdint.h>
-#include <CRC32.h>
-extern hcrc;
+#include <stdbool.h>
 
 /**
  * checks that Buffer ends with a valid CRC-32
@@ -9,21 +8,26 @@ extern hcrc;
  * 				CRC-32 value
  * @param Len	number of bytes in Buffer, including 4 byte
  * 				CRC-32
+ * CRC32 code derived from work by Gary S. Brown.
+ * https://web.mit.edu/freebsd/head/sys/libkern/crc32.c
+ *
  */
 
-bool CheckCRC(const uint8_t *Buff, const uint32_t Len)
+bool CheckCRC(const uint8_t *Buff, const uint32_t Len, const uint32_t * hcrc)
 {
 	//make sure args and crc32 return are not NULL
 	if(!Buff || !Len){
 		return false;
 	}
-	//Use HAL provided CRC32 module to calculate sum
-	uint32_t result = HAL_CRC_Calculate(&hcrc, (uint32_t*)Buff, 4);
-	result = result ^ ~0U;
+
+	uint32_t result = HAL_CRC_Calculate(hcrc, (uint32_t*)Buff, 4);
 
 	if(!result){
 		return false;
 	}
+
+	result = result ^ ~0U;
+
 	//for each byte of crc32 in packet, ensure equality with crc32 calculated on packet contents
 	for (int i = 0; i < 4; i++)
 	{
@@ -42,13 +46,3 @@ bool CheckCRC(const uint8_t *Buff, const uint32_t Len)
 
 	return true;
 }
-
-
-/*
-hcrc.Instance = CRC;
-hcrc.Init.DefaultPolynomialUse = DEFAULT_POLYNOMIAL_ENABLE;
-hcrc.Init.DefaultInitValueUse = DEFAULT_INIT_VALUE_ENABLE;
-hcrc.Init.InputDataInversionMode = CRC_INPUTDATA_INVERSION_BYTE;
-hcrc.Init.OutputDataInversionMode = CRC_OUTPUTDATA_INVERSION_ENABLE;
-hcrc.InputDataFormat = CRC_INPUTDATA_FORMAT_BYTES;
-*/
