@@ -31,7 +31,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
- bool CheckCRC( const uint8_t* Buff, uint32_t Len);
+ CheckCRC(const uint8_t *Buff, const uint32_t Len, const uint32_t *hcrc);
 
 
 #ifdef __cplusplus

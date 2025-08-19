@@ -56,11 +56,30 @@ void frameDecoder( void* NotUsed);
  * LedCmdExecutor
  */
 QueueHandle_t ledCmdQueue = NULL;
+CRC_HandleTypeDef hcrc;
+
+static void MX_CRC_Init(void)
+{
+
+  hcrc.Instance = CRC;
+  hcrc.Init.DefaultPolynomialUse = DEFAULT_POLYNOMIAL_ENABLE;
+  hcrc.Init.DefaultInitValueUse = DEFAULT_INIT_VALUE_ENABLE;
+  hcrc.Init.InputDataInversionMode = CRC_INPUTDATA_INVERSION_BYTE;
+  hcrc.Init.OutputDataInversionMode = CRC_OUTPUTDATA_INVERSION_ENABLE;
+  hcrc.InputDataFormat = CRC_INPUTDATA_FORMAT_BYTES;
+  if (HAL_CRC_Init(&hcrc) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+
+}
 
 int main(void)
 {
 	HWInit();
 	PWMInit();
+	MX_CRC_Init();
 	VirtualCommInit(256, configMAX_PRIORITIES-1);
 	SEGGER_SYSVIEW_Conf();
 	HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);	//ensure proper priority grouping for freeRTOS
@@ -145,7 +164,7 @@ void frameDecoder( void* NotUsed)
 
 		//if the frame is intact, store it into the command
 		//and send it to the ledCmdQueue
-		if(CheckCRC(frame, FRAME_LEN))
+		if(CheckCRC(frame, FRAME_LEN, &hcrc))
 		{
 			//populate the command with current values
 			incomingCmd.cmdNum = frame[1];
